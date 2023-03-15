@@ -3,7 +3,8 @@
     "listing": "/index.html",
     "items": [
       "/posts/post-with-code/index.html",
-      "/posts/first_file.html",
+      "/posts/DH140ProjectIntroduction.html",
+      "/posts/DataPreprocessingandInformation.html",
       "/posts/welcome/index.html"
     ]
   }
