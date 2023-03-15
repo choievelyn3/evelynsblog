@@ -172,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -214,11 +214,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [nltk_data] Downloading package wordnet to /home/jovyan/nltk_data...
 [nltk_data]   Package wordnet is already up-to-date!</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/1342/1342-0.txt"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> response.text</span>
@@ -226,7 +226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">0</span>]</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stop <span class="op">=</span> stopwords.words(<span class="st">'english'</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stop)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
@@ -236,150 +236,143 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't"]</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Jane Austen Data Summary:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Total Number of Novels: 4</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Pride and Prejudice:</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>       <span class="co"># - total number of chapters: 61</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>      <span class="co">#  - total number of words: 156,644 words</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#The datasets are directly from Project Gutenberg, which house public domain novels. Therefore, I assume that the data is accurate and complete.</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># For data preprocessing, I will be removing any stopwords, unneccessary characters, and make the entire text lowercase to easily process the data.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Exploratory Data Visualization:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<section id="jane-austen-data-summary" class="level1">
+<h1>Jane Austen Data Summary:</h1>
+<p>Total Number of Novels: 4</p>
+<p>Pride and Prejudice: - total number of chapters: 61 - total number of words: 156,644 words</p>
+<p>The datasets are directly from Project Gutenberg, which houses public domain novels. Therefore, I assume that the data is accurate.</p>
+<p>For data preprocessing, I will be removing any stopwords, unneccessary characters, and make the entire text lowercase to easily process the data.</p>
+</section>
+<section id="exploratory-data-visualization" class="level1">
+<h1>Exploratory Data Visualization:</h1>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Positive/negative words for Pride and Prejudice:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>positive_words <span class="op">=</span> []</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>negative_words <span class="op">=</span> []</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>neutral_words <span class="op">=</span> []</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> pnp_words:</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  scores <span class="op">=</span> sia.polarity_scores(word)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> scores [<span class="st">'compound'</span>] <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    neutral_words.append(word)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> scores [<span class="st">'compound'</span>] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    positive_words.append(word)</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> scores [<span class="st">'compound'</span>] <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    negative_words.append(word)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>pos_freq <span class="op">=</span> nltk.FreqDist(positive_words)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>neg_freq <span class="op">=</span> nltk.FreqDist(negative_words)</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>most_common_positive <span class="op">=</span> pos_freq.most_common(<span class="dv">15</span>)</span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>most_common_negative <span class="op">=</span> neg_freq.most_common(<span class="dv">15</span>)</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>plt.barh(<span class="bu">range</span>(<span class="bu">len</span>(most_common_positive)), [val[<span class="dv">1</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_positive])</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="bu">len</span>(most_common_positive)), [val[<span class="dv">0</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_positive])</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency of Words'</span>)</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Positive Words in Pride and Prejudice'</span>)</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>plt.barh(<span class="bu">range</span>(<span class="bu">len</span>(most_common_negative)), [val[<span class="dv">1</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_negative])</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="bu">len</span>(most_common_negative)), [val[<span class="dv">0</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_negative])</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency of Words'</span>)</span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Negative Words in Pride and Prejudice'</span>)</span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Positive/negative words for Pride and Prejudice:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>positive_words <span class="op">=</span> []</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>negative_words <span class="op">=</span> []</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>neutral_words <span class="op">=</span> []</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> word <span class="kw">in</span> pnp_words:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  scores <span class="op">=</span> sia.polarity_scores(word)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> scores [<span class="st">'compound'</span>] <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    neutral_words.append(word)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> scores [<span class="st">'compound'</span>] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    positive_words.append(word)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> scores [<span class="st">'compound'</span>] <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    negative_words.append(word)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>pos_freq <span class="op">=</span> nltk.FreqDist(positive_words)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>neg_freq <span class="op">=</span> nltk.FreqDist(negative_words)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>most_common_positive <span class="op">=</span> pos_freq.most_common(<span class="dv">15</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>most_common_negative <span class="op">=</span> neg_freq.most_common(<span class="dv">15</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>plt.barh(<span class="bu">range</span>(<span class="bu">len</span>(most_common_positive)), [val[<span class="dv">1</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_positive])</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="bu">len</span>(most_common_positive)), [val[<span class="dv">0</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_positive])</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency of Words'</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Positive Words in Pride and Prejudice'</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>plt.barh(<span class="bu">range</span>(<span class="bu">len</span>(most_common_negative)), [val[<span class="dv">1</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_negative])</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>plt.yticks(<span class="bu">range</span>(<span class="bu">len</span>(most_common_negative)), [val[<span class="dv">0</span>] <span class="cf">for</span> val <span class="kw">in</span> most_common_negative])</span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency of Words'</span>)</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Negative Words in Pride and Prejudice'</span>)</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Data Preprocessing and Information_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<p><img src="Data Preprocessing and Information_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Data Preprocessing and Information_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
+<p><img src="Data Preprocessing and Information_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-scrolled="true" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Word Frequency for Pride and Prejudice</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>wordsNoStop <span class="op">=</span> []</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> pnp_words:</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> myStopWords:</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        wordsNoStop.append(i)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>wordsNoStopComp <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> pnp_words <span class="cf">if</span> w <span class="kw">not</span> <span class="kw">in</span> myStopWords]</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> [PorterStemmer().stem(w) <span class="cf">for</span> w <span class="kw">in</span> wordsNoStopComp]</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nltk.FreqDist(pnp_words).most_common(<span class="dv">40</span>))</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'words'</span>: nltk.FreqDist(pnp_words).keys(),</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'frequencies'</span>: nltk.FreqDist(pnp_words).values()}) </span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'frequencies'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">7</span>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Word Frequencies in Pride and Prejudice'</span>)</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Word Frequency for Pride and Prejudice</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>wordsNoStop <span class="op">=</span> []</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> pnp_words:</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> i <span class="kw">not</span> <span class="kw">in</span> myStopWords:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        wordsNoStop.append(i)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>wordsNoStopComp <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> pnp_words <span class="cf">if</span> w <span class="kw">not</span> <span class="kw">in</span> myStopWords]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> [PorterStemmer().stem(w) <span class="cf">for</span> w <span class="kw">in</span> wordsNoStopComp]</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(nltk.FreqDist(pnp_words).most_common(<span class="dv">40</span>))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'words'</span>: nltk.FreqDist(pnp_words).keys(),</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'frequencies'</span>: nltk.FreqDist(pnp_words).values()}) </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'frequencies'</span>].plot(kind <span class="op">=</span> <span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Word Frequencies in Pride and Prejudice'</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[('mr.', 789), ('â\x80\x9d', 789), ('elizabeth', 602), ('could', 527), ('--', 498), ('would', 480), ('said', 406), ('darci', 377), ('mrs.', 346), ('much', 331), ('â\x80\x9ci', 322), ('bennet', 314), ('must', 310), ('miss', 308), ('one', 285), ('know', 274), ('jane', 270), ('bingley', 263), ('ladi', 256), ('sister', 247), ('think', 244), ('though', 234), ('never', 227), ('time', 219), ('see', 217), ('soon', 214), ('make', 210), ('say', 205), ('might', 204), ('may', 197), ('well', 191), ('littl', 188), ('everi', 185), ('wish', 184), ('noth', 183), ('look', 177), ('good', 174), ('without', 173), ('even', 173), ('hope', 172)]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Data Preprocessing and Information_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+<p><img src="Data Preprocessing and Information_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-scrolled="true" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Most Common Adjectives</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>wordLancasterStems <span class="op">=</span> [LancasterStemmer().stem(w) <span class="cf">for</span> w <span class="kw">in</span> pnp_words]</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>wordPorterStems <span class="op">=</span> [PorterStemmer().stem(w) <span class="cf">for</span> w <span class="kw">in</span> pnp_words]</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>pnp_pos <span class="op">=</span> nltk.pos_tag(pnp_words)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>adjectives <span class="op">=</span> [word[<span class="dv">0</span>] <span class="cf">for</span> word <span class="kw">in</span> pnp_pos <span class="cf">if</span> word[<span class="dv">1</span>] <span class="kw">in</span> [<span class="st">'JJ'</span>, <span class="st">'JJS'</span>, <span class="st">'JJR'</span>]]</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>pnp_freqdist <span class="op">=</span> nltk.FreqDist(adjectives)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(pnp_freqdist.items()), columns<span class="op">=</span>[<span class="st">'Word'</span>, <span class="st">'Frequency'</span>])</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(<span class="st">'Frequency'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>plt.bar(df[<span class="st">'Word'</span>][:<span class="dv">10</span>], df[<span class="st">'Frequency'</span>][:<span class="dv">10</span>])</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Adjectives'</span>)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Adjective'</span>)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Most Common Adjectives</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>wordLancasterStems <span class="op">=</span> [LancasterStemmer().stem(w) <span class="cf">for</span> w <span class="kw">in</span> pnp_words]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>wordPorterStems <span class="op">=</span> [PorterStemmer().stem(w) <span class="cf">for</span> w <span class="kw">in</span> pnp_words]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>pnp_pos <span class="op">=</span> nltk.pos_tag(pnp_words)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>adjectives <span class="op">=</span> [word[<span class="dv">0</span>] <span class="cf">for</span> word <span class="kw">in</span> pnp_pos <span class="cf">if</span> word[<span class="dv">1</span>] <span class="kw">in</span> [<span class="st">'JJ'</span>, <span class="st">'JJS'</span>, <span class="st">'JJR'</span>]]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>pnp_freqdist <span class="op">=</span> nltk.FreqDist(adjectives)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(<span class="bu">list</span>(pnp_freqdist.items()), columns<span class="op">=</span>[<span class="st">'Word'</span>, <span class="st">'Frequency'</span>])</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.sort_values(<span class="st">'Frequency'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.bar(df[<span class="st">'Word'</span>][:<span class="dv">10</span>], df[<span class="st">'Frequency'</span>][:<span class="dv">10</span>])</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Adjectives'</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Adjective'</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/tmp/ipykernel_239/692061512.py:15: FutureWarning: The behavior of `series[i:j]` with an integer-dtype index is deprecated. In a future version, this will be treated as *label-based* indexing, consistent with e.g. `series[i]` lookups. To retain the old behavior, use `series.iloc[i:j]`. To get the future behavior, use `series.loc[i:j]`.
   plt.bar(df['Word'][:10], df['Frequency'][:10])</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Data Preprocessing and Information_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+<p><img src="Data Preprocessing and Information_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Character Network Visualization</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>characters <span class="op">=</span> [<span class="st">'Mr. Darcy'</span>, <span class="st">'Mr. Bingley'</span>, <span class="st">'Elizabeth Bennet'</span>, <span class="st">'Jane Bennet'</span>, <span class="st">'George Wickham'</span>, <span class="st">'Mr. Collins'</span>, <span class="st">'Charlotte Lucas'</span>, <span class="st">'Lydia Bennet'</span>, <span class="st">'Lady Catherine de Bourgh'</span>]</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>G.add_nodes_from(characters)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>G.add_edges_from([(<span class="st">'Mr. Darcy'</span>, <span class="st">'George Wickham'</span>), (<span class="st">'Mr. Darcy'</span>, <span class="st">'Elizabeth Bennet'</span>), (<span class="st">'Mr. Bingley'</span>, <span class="st">'Jane Bennet'</span>), (<span class="st">'Mr. Bingley'</span>, <span class="st">'Mr. Darcy'</span>), (<span class="st">'Mr. Collins'</span>, <span class="st">'Charlotte Lucas'</span>), (<span class="st">'Elizabeth Bennet'</span>, <span class="st">'Charlotte Lucas'</span>), (<span class="st">'Lydia Bennet'</span>, <span class="st">'George Wickham'</span>), (<span class="st">'Mr. Collins'</span>, <span class="st">'Elizabeth Bennet'</span>), (<span class="st">'Lady Catherine de Bourgh'</span>, <span class="st">'Mr. Collins'</span>), (<span class="st">'Lady Catherine de Bourgh'</span>, <span class="st">'Mr. Darcy'</span>), (<span class="st">'Elizabeth Bennet'</span>, <span class="st">'Lydia Bennet'</span>), (<span class="st">'Jane Bennet'</span>, <span class="st">'Elizabeth Bennet'</span>), (<span class="st">'Jane Bennet'</span>, <span class="st">'Lydia Bennet'</span>), (<span class="st">'Lady Catherine de Bourgh'</span>, <span class="st">'Elizabeth Bennet'</span>)])</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>nx.draw(G, with_labels<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Character Network Visualization</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>characters <span class="op">=</span> [<span class="st">'Mr. Darcy'</span>, <span class="st">'Mr. Bingley'</span>, <span class="st">'Elizabeth Bennet'</span>, <span class="st">'Jane Bennet'</span>, <span class="st">'George Wickham'</span>, <span class="st">'Mr. Collins'</span>, <span class="st">'Charlotte Lucas'</span>, <span class="st">'Lydia Bennet'</span>, <span class="st">'Lady Catherine de Bourgh'</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>G.add_nodes_from(characters)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>G.add_edges_from([(<span class="st">'Mr. Darcy'</span>, <span class="st">'George Wickham'</span>), (<span class="st">'Mr. Darcy'</span>, <span class="st">'Elizabeth Bennet'</span>), (<span class="st">'Mr. Bingley'</span>, <span class="st">'Jane Bennet'</span>), (<span class="st">'Mr. Bingley'</span>, <span class="st">'Mr. Darcy'</span>), (<span class="st">'Mr. Collins'</span>, <span class="st">'Charlotte Lucas'</span>), (<span class="st">'Elizabeth Bennet'</span>, <span class="st">'Charlotte Lucas'</span>), (<span class="st">'Lydia Bennet'</span>, <span class="st">'George Wickham'</span>), (<span class="st">'Mr. Collins'</span>, <span class="st">'Elizabeth Bennet'</span>), (<span class="st">'Lady Catherine de Bourgh'</span>, <span class="st">'Mr. Collins'</span>), (<span class="st">'Lady Catherine de Bourgh'</span>, <span class="st">'Mr. Darcy'</span>), (<span class="st">'Elizabeth Bennet'</span>, <span class="st">'Lydia Bennet'</span>), (<span class="st">'Jane Bennet'</span>, <span class="st">'Elizabeth Bennet'</span>), (<span class="st">'Jane Bennet'</span>, <span class="st">'Lydia Bennet'</span>), (<span class="st">'Lady Catherine de Bourgh'</span>, <span class="st">'Elizabeth Bennet'</span>)])</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>nx.draw(G, with_labels<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Data Preprocessing and Information_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<p><img src="Data Preprocessing and Information_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Beginnings of analysis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># I made four visualizations to display word use, character networks, adjective frequency, and positive and negative words. To further prepare the data for analysis, I removed punctuation and made the text all lowercase. In text analysis, this is a popular first step that helps get rid of clutter that doesn't add any value to the research. The next step I could take would be examining the visuals to learn more about the story's characters, their motivations, and the language they use.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Additional 4 data Visualizations I'm interested in making</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. a visualization that compares the language spoken by characters of different social classes</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. sentiment analysis of part 1 and part 2 and how the tone shifts</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. certain character interactions shift the tone of the novel, like for example, Lydia and Wickham's elopement</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. textual analysis on different romantic relationships between couples in the novel, like Darcy and Elizabeth with Mr. Collins and Elizabeth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+</section>
+<section id="beginnings-of-analysis" class="level1">
+<h1>Beginnings of analysis</h1>
+<p>I made four visualizations to display word use, character networks, adjective frequency, and positive and negative words. To further prepare the data for analysis, I removed punctuation and made the text all lowercase. In text analysis, this is a popular first step that helps get rid of clutter that doesn’t add any value to the research. The next step I could take would be examining the visuals to learn more about the story’s characters, their motivations, and the language they use.</p>
+</section>
+<section id="additional-4-data-visualizations-im-interested-in-making" class="level1">
+<h1>Additional 4 data Visualizations I’m interested in making</h1>
+<ol type="1">
+<li>a visualization that compares the language spoken by characters of different social classes</li>
+<li>sentiment analysis of part 1 and part 2 and how the tone shifts</li>
+<li>certain character interactions shift the tone of the novel, like for example, Lydia and Wickham’s elopement</li>
+<li>textual analysis on different romantic relationships between couples in the novel, like Darcy and Elizabeth with Mr.&nbsp;Collins and Elizabeth</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

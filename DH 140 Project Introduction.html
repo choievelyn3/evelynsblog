@@ -172,59 +172,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">"DH 140 Final Project:"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="1">
-<pre><code>'DH 140 Final Project:'</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Description of Data: I will be primarily focusing on 'Pride and Prejudice' by Jane Austen from Project Gutenberg."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Description of Data: I will be primarily focusing on 'Pride and Prejudice' by Jane Austen from Project Gutenberg.</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/1342/1342-0.txt"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> response.text</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** START OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">1</span>]</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">0</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> string <span class="im">import</span> punctuation</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>stop <span class="op">=</span> stopwords.words(<span class="st">'english'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stop)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>sia <span class="op">=</span> vader.SentimentIntensityAnalyzer()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't"]</code></pre>
-</div>
-</div>
+<section id="dh-140-final-project" class="level1">
+<h1>DH 140 Final Project:</h1>
+<p>Description of Data: I will be primarily focusing on ‘Pride and Prejudice’ by Jane Austen from Project Gutenberg.</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"My motivation with this project is to analyze the language and the sentiment of the various characters in Pride and Prejudice. I want to understand how much influence language and the sentiment have on the characters and the overall story."</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>My motivation with this project is to analyze the language and the sentiment of the various characters in Pride and Prejudice. I want to understand how much influence language and the sentiment have on the characters and the overall story.</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Questions:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># A few questions that I hope to answer through my project are:</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Which words appear frequently in Pride and Prejudice? </span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># How does Elizabeth Bennet's and Mr. Darcy's relationship develop as the story progresses? </span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Why do different genders&nbsp;in Pride and Prejudice speak differently, and how does this effect the novel's overall&nbsp;tone and message? </span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># What significant events cause shifts in how people feel in&nbsp;Pride and Prejudice, and what causes those shifts to occur? </span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># How do the sentiments of Pride and Prejudice's various social classes vary? </span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># How can certain words or word categories help to develop the ideas of Pride and Prejudice? </span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># How does Pride and Prejudice's evolving main characters and their relationship with one another shape the novel's tone? </span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># What are some similarities and differences in the language and emotion used by the various characters in Pride and Prejudice, and how do these elements develop over the novel?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/1342/1342-0.txt"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> response.text</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** START OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">1</span>]</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">0</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>My motivation with this project is to analyze the language and the sentiment of the various characters in Pride and Prejudice. I want to understand how much influence language and the sentiment have on the characters and the overall story.</p>
+</section>
+<section id="questions" class="level1">
+<h1>Questions:</h1>
+<p>A few questions that I hope to answer through my project are:</p>
+<ul>
+<li>Which words appear frequently in Pride and Prejudice?</li>
+<li>How does Elizabeth Bennet’s and Mr.&nbsp;Darcy’s relationship develop as the story progresses?- Why do different genders&nbsp;in Pride and Prejudice speak differently, and how does this effect the novel’s overall&nbsp;tone and message?</li>
+<li>What significant events cause shifts in how people feel in&nbsp;Pride and Prejudice, and what causes those shifts to occur?</li>
+<li>How do the sentiments of Pride and Prejudice’s various social classes vary?</li>
+<li>How can certain words or word categories help to develop the ideas of Pride and Prejudice?</li>
+<li>How does Pride and Prejudice’s evolving main characters and their relationship with one another shape the novel’s tone?</li>
+<li>What are some similarities and differences in the language and emotion used by the various characters in Pride and Prejudice, and how do these elements develop over the novel?</li>
+</ul>
+</section>
+<section id="additional-sources" class="level1">
+<h1>Additional Sources:</h1>
+<ul>
+<li><p>https://www.nytimes.com/2017/07/06/upshot/the-word-choices-that-explain-why-jane-austen-endures.html</p></li>
+<li><p>Runge, Laura L. “Austen and Computation 2.0.” Texas Studies in Literature &amp; Language, vol.&nbsp;61, no. 4, Winter 2019, pp.&nbsp;397–415. EBSCOhost, https://doi.org/10.7560/tsll61405.</p></li>
+<li><p>https://datascientistdiary.com/index.php/2021/02/04/introduction-to-text-mining-and-sentiment-analysis-in-r-with-jane-austens-novels/</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
