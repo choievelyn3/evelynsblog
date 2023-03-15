@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://choievelyn3.github.io/evelynsblog/Data Preprocessing and Information.html</loc>
+    <lastmod>2023-03-15T06:33:41.487Z</lastmod>
+  </url>
+  <url>
     <loc>https://choievelyn3.github.io/evelynsblog/posts/welcome/index.html</loc>
-    <lastmod>2023-03-15T06:28:48.130Z</lastmod>
+    <lastmod>2023-03-15T06:33:41.936Z</lastmod>
   </url>
   <url>
     <loc>https://choievelyn3.github.io/evelynsblog/posts/first_file.html</loc>
-    <lastmod>2023-03-15T06:28:49.093Z</lastmod>
+    <lastmod>2023-03-15T06:33:42.353Z</lastmod>
   </url>
   <url>
     <loc>https://choievelyn3.github.io/evelynsblog/posts/post-with-code/index.html</loc>
-    <lastmod>2023-03-15T06:28:49.512Z</lastmod>
+    <lastmod>2023-03-15T06:33:42.768Z</lastmod>
   </url>
   <url>
     <loc>https://choievelyn3.github.io/evelynsblog/about.html</loc>
-    <lastmod>2023-03-15T06:28:49.922Z</lastmod>
+    <lastmod>2023-03-15T06:33:43.162Z</lastmod>
+  </url>
+  <url>
+    <loc>https://choievelyn3.github.io/evelynsblog/DH 140 Project Introduction.html</loc>
+    <lastmod>2023-03-15T06:33:43.611Z</lastmod>
   </url>
   <url>
     <loc>https://choievelyn3.github.io/evelynsblog/index.html</loc>
-    <lastmod>2023-03-15T06:28:50.455Z</lastmod>
+    <lastmod>2023-03-15T06:33:44.114Z</lastmod>
   </url>
 </urlset>
