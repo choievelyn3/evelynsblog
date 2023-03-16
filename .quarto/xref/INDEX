@@ -1,0 +1,35 @@
+{
+  "posts/welcome/index.qmd": {
+    "index.html": "5511a8b6"
+  },
+  "posts/first_file.ipynb": {
+    "first_file.html": "02678d2b"
+  },
+  "posts/post-with-code/index.qmd": {
+    "index.html": "cbfdb2df"
+  },
+  "about.qmd": {
+    "about.html": "43a42853"
+  },
+  "index.qmd": {
+    "index.html": "1e265a9a"
+  },
+  "Data Preprocessing and Information.ipynb": {
+    "Data Preprocessing and Information.html": "2363f709"
+  },
+  "DH 140 Project Introduction.ipynb": {
+    "DH 140 Project Introduction.html": "4165a8e5"
+  },
+  "posts/DH140ProjectIntroduction.ipynb": {
+    "DH140ProjectIntroduction.html": "66cb6cb0"
+  },
+  "posts/DataPreprocessingandInformation.ipynb": {
+    "DataPreprocessingandInformation.html": "21db7001"
+  },
+  "posts/DataPreProcessingandInformation/DataPreprocessingandInformation.ipynb": {
+    "DataPreprocessingandInformation.html": "a16d251d"
+  },
+  "posts/DH140ProjectIntroduction/DH140ProjectIntroduction.ipynb": {
+    "DH140ProjectIntroduction.html": "91b4ed73"
+  }
+}
