@@ -2,9 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/DH140ProjectIntroduction.html",
-      "/posts/post-with-code/index.html",
-      "/posts/first_file.html",
       "/posts/DataPreProcessingandInformation/DataPreprocessingandInformation.html",
       "/posts/DH140ProjectIntroduction/DH140ProjectIntroduction.html",
       "/posts/welcome/index.html"

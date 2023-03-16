@@ -7,13 +7,6 @@
     "text": "DH 140 Final Project:\nDescription of Data: I will be primarily focusing on ‘Pride and Prejudice’ by Jane Austen from Project Gutenberg.\n\nimport requests\n\n\ntarget_url = \"https://www.gutenberg.org/files/1342/1342-0.txt\"\nresponse = requests.get(target_url)\npnp_string = response.text\npnp_string = pnp_string.split('*** START OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***')[1]\npnp_string = pnp_string.split('*** END OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***')[0]\npnp_string = pnp_string.lower()\n\nMy motivation with this project is to analyze the language and the sentiment of the various characters in Pride and Prejudice. I want to understand how much influence language and the sentiment have on the characters and the overall story.\n\n\nQuestions:\nA few questions that I hope to answer through my project are:\n\nWhich words appear frequently in Pride and Prejudice?\nHow does Elizabeth Bennet’s and Mr. Darcy’s relationship develop as the story progresses?- Why do different genders in Pride and Prejudice speak differently, and how does this effect the novel’s overall tone and message?\nWhat significant events cause shifts in how people feel in Pride and Prejudice, and what causes those shifts to occur?\nHow do the sentiments of Pride and Prejudice’s various social classes vary?\nHow can certain words or word categories help to develop the ideas of Pride and Prejudice?\nHow does Pride and Prejudice’s evolving main characters and their relationship with one another shape the novel’s tone?\nWhat are some similarities and differences in the language and emotion used by the various characters in Pride and Prejudice, and how do these elements develop over the novel?\n\n\n\nAdditional Sources:\n\nhttps://www.nytimes.com/2017/07/06/upshot/the-word-choices-that-explain-why-jane-austen-endures.html\nRunge, Laura L. “Austen and Computation 2.0.” Texas Studies in Literature & Language, vol. 61, no. 4, Winter 2019, pp. 397–415. EBSCOhost, https://doi.org/10.7560/tsll61405.\nhttps://datascientistdiary.com/index.php/2021/02/04/introduction-to-text-mining-and-sentiment-analysis-in-r-with-jane-austens-novels/"
   },
   {
-    "objectID": "posts/DH140ProjectIntroduction.html",
-    "href": "posts/DH140ProjectIntroduction.html",
-    "title": "evelynsblog",
-    "section": "",
-    "text": "DH 140 Final Project:\nDescription of Data: I will be primarily focusing on ‘Pride and Prejudice’ by Jane Austen from Project Gutenberg.\n\nimport requests\n\n\ntarget_url = \"https://www.gutenberg.org/files/1342/1342-0.txt\"\nresponse = requests.get(target_url)\npnp_string = response.text\npnp_string = pnp_string.split('*** START OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***')[1]\npnp_string = pnp_string.split('*** END OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***')[0]\npnp_string = pnp_string.lower()\n\nMy motivation with this project is to analyze the language and the sentiment of the various characters in Pride and Prejudice. I want to understand how much influence language and the sentiment have on the characters and the overall story.\n\n\nQuestions:\nA few questions that I hope to answer through my project are:\n\nWhich words appear frequently in Pride and Prejudice?\nHow does Elizabeth Bennet’s and Mr. Darcy’s relationship develop as the story progresses?- Why do different genders in Pride and Prejudice speak differently, and how does this effect the novel’s overall tone and message?\nWhat significant events cause shifts in how people feel in Pride and Prejudice, and what causes those shifts to occur?\nHow do the sentiments of Pride and Prejudice’s various social classes vary?\nHow can certain words or word categories help to develop the ideas of Pride and Prejudice?\nHow does Pride and Prejudice’s evolving main characters and their relationship with one another shape the novel’s tone?\nWhat are some similarities and differences in the language and emotion used by the various characters in Pride and Prejudice, and how do these elements develop over the novel?\n\n\n\nAdditional Sources:\n\nhttps://www.nytimes.com/2017/07/06/upshot/the-word-choices-that-explain-why-jane-austen-endures.html\nRunge, Laura L. “Austen and Computation 2.0.” Texas Studies in Literature & Language, vol. 61, no. 4, Winter 2019, pp. 397–415. EBSCOhost, https://doi.org/10.7560/tsll61405.\nhttps://datascientistdiary.com/index.php/2021/02/04/introduction-to-text-mining-and-sentiment-analysis-in-r-with-jane-austens-novels/"
-  },
-  {
     "objectID": "posts/DataPreProcessingandInformation/DataPreprocessingandInformation.html",
     "href": "posts/DataPreProcessingandInformation/DataPreprocessingandInformation.html",
     "title": "Data Pre-Processing and Information",
@@ -26,20 +19,6 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/first_file.html",
-    "href": "posts/first_file.html",
-    "title": "First File",
-    "section": "",
-    "text": "2+2\n\n4"
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code."
   },
   {
     "objectID": "posts/DH140ProjectIntroduction/DH140ProjectIntroduction.html",
@@ -67,6 +46,6 @@
     "href": "index.html",
     "title": "evelynsblog",
     "section": "",
-    "text": "DH 140 Final Project:\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 15, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFirst File\n\n\n\n\n\nTesting Quarto\n\n\n\n\n\n\nMar 14, 2023\n\n\nEvelyn Choi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData Pre-Processing and Information\n\n\n\n\n\n\n\ncode\n\n\n\n\nBelow is my data pre-processed, along with 4 data visualizations.\n\n\n\n\n\n\nMar 13, 2023\n\n\nEvelyn Choi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDH 140 Project Introduction\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\nI will be primarily focusing on ‘Pride and Prejudice’ by Jane Austen from Project Gutenberg.\n\n\n\n\n\n\nMar 13, 2023\n\n\nEvelyn Choi\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Data Pre-Processing and Information\n\n\n\n\n\n\n\ncode\n\n\nvisuals\n\n\npre-processing\n\n\n\n\nBelow is my data pre-processed, along with 4 data visualizations.\n\n\n\n\n\n\nMar 13, 2023\n\n\nEvelyn Choi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDH 140 Project Introduction\n\n\n\n\n\n\n\nIntroduction\n\n\n\n\nI will be primarily focusing on ‘Pride and Prejudice’ by Jane Austen from Project Gutenberg.\n\n\n\n\n\n\nMar 13, 2023\n\n\nEvelyn Choi\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 12, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]
