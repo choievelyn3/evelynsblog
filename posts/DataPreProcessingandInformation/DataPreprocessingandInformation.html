@@ -6,11 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Evelyn Choi">
-<meta name="dcterms.date" content="2023-03-13">
-<meta name="description" content="Below is my data pre-processed, along with 4 data visualizations.">
 
-<title>evelynsblog - Data Pre-Processing and Information</title>
+<title>evelynsblog – datapreprocessingandinformation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,51 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Data Pre-Processing and Information</h1>
-                  <div>
-        <div class="description">
-          Below is my data pre-processed, along with 4 data visualizations.
-        </div>
-      </div>
-                          <div class="quarto-categories">
-                <div class="quarto-category">code</div>
-                <div class="quarto-category">visuals</div>
-                <div class="quarto-category">pre-processing</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Evelyn Choi </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">March 13, 2023</p>
-      </div>
-    </div>
-    
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">March 13, 2023</p>
-      </div>
-    </div>
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
@@ -219,8 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-
-<div class="cell" data-scrolled="true" data-execution_count="3">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -237,16 +189,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> sentiwordnet <span class="im">as</span> swn</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem.lancaster <span class="im">import</span> LancasterStemmer</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>code {display: none<span class="op">;</span>}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> gensim <span class="im">import</span> corpora, models</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> sentiwordnet <span class="im">as</span> swn</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'punkt'</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'stopwords'</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'vader_lexicon'</span>)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'opinion_lexicon'</span>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'averaged_perceptron_tagger'</span>)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'wordnet'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'punkt'</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'stopwords'</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'vader_lexicon'</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'opinion_lexicon'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'averaged_perceptron_tagger'</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>nltk.download(<span class="st">'wordnet'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>[nltk_data] Downloading package punkt to /home/jovyan/nltk_data...
 [nltk_data]   Package punkt is already up-to-date!
@@ -265,73 +216,102 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 [nltk_data] Downloading package wordnet to /home/jovyan/nltk_data...
 [nltk_data]   Package wordnet is already up-to-date!</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>True</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/1342/1342-0.txt"</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> response.text</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** START OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">1</span>]</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK PRIDE AND PREJUDICE ***'</span>)[<span class="dv">0</span>]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pnp_string <span class="op">=</span> pnp_string.lower()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/105/105-0.txt"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>persuasion_string <span class="op">=</span> response.text</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>persuasion_string <span class="op">=</span> persuasion_string.split(<span class="st">'*** START OF THE PROJECT GUTENBERG EBOOK PERSUASION ***'</span>)[<span class="dv">1</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>persuasion_string <span class="op">=</span> persuasion_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK PERSUASION ***'</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>persuasion_string <span class="op">=</span> persuasion_string.lower()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/158/158-0.txt"</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>emma_string <span class="op">=</span> response.text</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>emma_string <span class="op">=</span> emma_string.split(<span class="st">'*** START OF THE PROJECT GUTENBERG EBOOK EMMA ***'</span>)[<span class="dv">1</span>]</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>emma_string <span class="op">=</span> emma_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK EMMA ***'</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>emma_string <span class="op">=</span> emma_string.lower()</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>target_url <span class="op">=</span> <span class="st">"https://www.gutenberg.org/files/161/161-0.txt"</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(target_url)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>sns_string <span class="op">=</span> response.text</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>sns_string <span class="op">=</span> sns_string.split(<span class="st">'*** START OF THE PROJECT GUTENBERG EBOOK SENSE AND SENSIBILITY ***'</span>)[<span class="dv">1</span>]</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>sns_string <span class="op">=</span> sns_string.split(<span class="st">'*** END OF THE PROJECT GUTENBERG EBOOK SENSE AND SENSIBILITY ***'</span>)[<span class="dv">0</span>]</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>sns_string <span class="op">=</span> sns_string.lower()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stop <span class="op">=</span> stopwords.words(<span class="st">'english'</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stop)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sia <span class="op">=</span> vader.SentimentIntensityAnalyzer()</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't"]</code></pre>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sia <span class="op">=</span> vader.SentimentIntensityAnalyzer()</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>persuasion_words <span class="op">=</span> word_tokenize(persuasion_string)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>emma_words <span class="op">=</span> word_tokenize(emma_string)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>sns_words <span class="op">=</span> word_tokenize(sns_string)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<section id="data-analytical-process" class="level1">
-<h1>Data Analytical Process</h1>
+<section id="jane-austen-data-summary" class="level1">
+<h1>Jane Austen Data Summary:</h1>
+<p>Pride and Prejudice: - total number of chapters: 61 - total number of words: 156,644 words - total number of volumes: 3</p>
+<p>The datasets are directly from Project Gutenberg, which houses public domain novels. Therefore, I assume that the data is accurate.</p>
+<p>For data preprocessing, I will be removing any stopwords, unneccessary characters, and make the entire text lowercase to easily process the data.</p>
+</section>
+<section id="methods" class="level1">
+<h1>Methods:</h1>
 <p>The data that I used for this project was sourced from Project Gutenberg, which houses public domain novels. Therefore, I assume that the data is accurate. For this project, I chose to create 8 data visualizations using Python: 6 visualizations focus primarily on ‘Pride and Prejudice’ and 2 visualizations compare ‘Pride and Prejudice’ to other Jane Austen novels like ‘Sense and Sensibility’, ‘Emma’, and ‘Persuasion’. For data pre-processing, I removed any stopwords, unnecessary characters, and made sure the entire text was lowercase to easily process the data.</p>
-<p>Visualization 1: I chose to focus on word frequency in ‘Pride and Prejudice’, by utilizing NLTK library, stemming words with the porterstemmer, and used frequency distribution to calculate the frequency distribution of those stemmed words. I plotted the top 15 most frequently used words in the novel into a bar chart using Matplotlib.</p>
-<p>Visualization 2: I chose to focus on the adjectives that are most frequently used by Jane Austen in ‘Pride and Prejudice’. When I read ‘Pride and Prejudice’, I always thought that the writing was very descriptive, hence why I wanted to see what types of adjectives were most common. I utilized POS tagging to get the Penn Treebank letters that correspond with the adjectives and filtered through to get all the adjectives using a for loop. Similar to the first visualization, I then went ahead and used the frequency distribution to understand the frequency of the adjectives in the novel. Then, I created a bar chart to display the results.</p>
-<p>Visualization 3: I did the same steps as I did for the second visualization, but instead, I chose to focus only on the nouns in the novel, thus switching out the Penn Treebank letters from Adjectives to Nouns. There are a lot of characters and subjects that are featured in the book, so I wanted to see which nouns occurred most frequently in a dense book like ‘Pride and Prejudice’.</p>
-<p>Visualization 4: I did a character network visualization to see how the characters are connected with each other and further understand their relationships. I used the NetworkX library to create this graph. I manually inputted each character into the character variable, and then using that to create the nodes. Then, I created the edges by also manually inputting the characters and their relationship to each other. For this specific visualization, I did not include all the characters from the novel because they are not significant characters in the story and I wanted to see which characters had the most interaction with other characters.</p>
-<p>Visualization 5: I chose to do a sentiment analysis on ‘Pride and Prejudice’ but see how the sentiment changes over the course of the novel. To conduct this analysis, I first split up the novel (pnp_string) by chapter using the split() method, scanning the text and splitting by every word ‘chapter’. Then, I utilized VADER to assess the sentiment of the text and to get a calculated score for each chapter. After, I proceeded to use a for loop that looped through all 61 chapters, storing the chapter number and sentiment scores into separate lists, then plotting it using a line graph to get a better visualization of the gradual fluctuation in sentiment scores over the course of the novel.</p>
-<p>Visualization 6: I chose to focus on the most common positive and negative words in ‘Pride and Prejudice’ to understand which words are the most frequently used in the novel based on their sentiment. I created positive, negative, and neutral words list and divided up the words using a for loop. I also used VADER sentiment analysis tool to get a score and divide it up with the if-else statement, and added to the list I created. Then, I did a frequency distribution to calculate the positive and negative words separately, thus getting the 15 most common positive and negative words, which are displayed using Matplotlib in a horizontal bar plot. For the seventh and eighth visualization, I wanted to compare ‘Pride and Prejudice’ to other Jane Austin novels to compare her writing style and see if it has stayed consistent or if there are any major changes that have occurred in her writing style between writing each text. I specifically chose to focus on ‘Sense and Sensibility’ (published in 1811), ‘Pride and Prejudice’ (published in 1813), ‘Emma’ (published in 1815), and ‘Persuasion’ (published in 1817) because there is a pretty even gap between each novel’s publishing, which is perfect for analyzing if Jane Austen’s writing has evolved.</p>
-<p>Visualization 7: The seventh visualization is the same as the sixth visualization, but my purpose of choosing to analyze the most common positive and negative words is to see which words are similar to ‘Pride and Prejudice’ that may be similar or different in terms of writing style and the overall sentiment in Jane Austen’s writing style.</p>
-<p>Visualization 8: Divided into three, this is a comparison of the type of words that are frequently used the most in Jane Austen novels, comparing all four novels. I compared the novels’ nouns, adjectives, and verbs, by using the pos_tag() function to see which Penn Treebank were with each word in the novels, which I focused only on ‘NN’ for noun, ‘VB’ for verb, and ‘JJ’ for adjective. After tagging the words, I used the frequency distribution function to analyze the occurrence of each of the words. Finally, I used matplotlib to plot the frequency distribution into bar charts, dividing up into four novels and their dates.</p>
+<p>For my first visualization, I chose to focus on word frequency in ‘Pride and Prejudice’, by utilizing NLTK library, stemming words with the porterstemmer, and used frequency distribution to calculate the frequency distribution of those stemmed words. I plotted the top 15 most frequently used words in the novel into a bar chart using Matplotlib.</p>
+<p>For the second visualization, I chose to focus on the adjectives that are most frequently used by Jane Austen in ‘Pride and Prejudice’. When I read ‘Pride and Prejudice’, I always thought that the writing was very descriptive, hence why I wanted to see what types of adjectives were most common. I utilized POS tagging to get the Penn Treebank letters that correspond with the adjectives and filtered through to get all the adjectives using a for loop. Similar to the first visualization, I then went ahead and used the frequency distribution to understand the frequency of the adjectives in the novel. Then, I created a bar chart to display the results.</p>
+<p>For the third visualization, I did the same steps as I did for the second visualization, but instead, I chose to focus only on the nouns in the novel, thus switching out the Penn Treebank letters from Adjectives to Nouns. There are a lot of characters and subjects that are featured in the book, so I wanted to see which nouns occurred most frequently in a dense book like ‘Pride and Prejudice’.</p>
+<p>For the fourth visualization, I did a character network visualization to see how the characters are connected with each other and further understand their relationships. I used the NetworkX library to create this graph. I manually inputted each character into the character variable, and then using that to create the nodes. Then, I created the edges by also manually inputting the characters and their relationship to each other. For this specific visualization, I did not include all the characters from the novel because they are not significant characters in the story and I wanted to see which characters had the most interaction with other characters.</p>
+<p>For the fifth visualization, I chose to do a sentiment analysis on ‘Pride and Prejudice’ but see how the sentiment changes over the course of the novel. To conduct this analysis, I first split up the novel (pnp_string) by chapter using the split() method, scanning the text and splitting by every word ‘chapter’. Then, I utilized VADER to assess the sentiment of the text and to get a calculated score for each chapter. After, I proceeded to use a for loop that looped through all 61 chapters, storing the chapter number and sentiment scores into separate lists, then plotting it using a line graph to get a better visualization of the gradual fluctuation in sentiment scores over the course of the novel.</p>
+<p>For the sixth visualization, I chose to focus on the most common positive and negative words in ‘Pride and Prejudice’ to understand which words are the most frequently used in the novel based on their sentiment. I created positive, negative, and neutral words list and divided up the words using a for loop. I also used VADER sentiment analysis tool to get a score and divide it up with the if-else statement, and added to the list I created. Then, I did a frequency distribution to calculate the positive and negative words separately, thus getting the 15 most common positive and negative words, which are displayed using Matplotlib in a horizontal bar plot. For the seventh and eighth visualization, I wanted to compare ‘Pride and Prejudice’ to other Jane Austin novels to compare her writing style and see if it has stayed consistent or if there are any major changes that have occurred in her writing style between writing each text. I specifically chose to focus on ‘Sense and Sensibility’ (published in 1811), ‘Pride and Prejudice’ (published in 1813), ‘Emma’ (published in 1815), and ‘Persuasion’ (published in 1817) because there is a pretty even gap between each novel’s publishing, which is perfect for analyzing if Jane Austen’s writing has evolved.</p>
+<p>The seventh visualization is the same as the sixth visualization, but my purpose of choosing to analyze the most common positive and negative words is to see which words are similar to ‘Pride and Prejudice’ that may be similar or different in terms of writing style and the overall sentiment in Jane Austen’s writing style.</p>
+<p>Lastly, the eighth visualization, which are divided into three, is a comparison of the type of words that are frequently used the most in Jane Austen novels, comparing all four novels. I compared the novels’ nouns, adjectives, and verbs, by using the pos_tag() function to see which Penn Treebank were with each word in the novels, which I focused only on ‘NN’ for noun, ‘VB’ for verb, and ‘JJ’ for adjective. After tagging the words, I used the frequency distribution function to analyze the occurrence of each of the words. Finally, I used matplotlib to plot the frequency distribution into bar charts, dividing up into four novels and their dates.</p>
 </section>
 <section id="results" class="level1">
-<h1>Results:</h1>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Word Frequency for Pride and Prejudice</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>wordsNoStop <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> pnp_words <span class="cf">if</span> w.lower() <span class="kw">not</span> <span class="kw">in</span> myStopWords]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>porterstemmed <span class="op">=</span> []</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> w <span class="kw">in</span> wordsNoStop:</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    pstemmer <span class="op">=</span> PorterStemmer()</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    porterstemmed.append(pstemmer.stem(w))</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>word_freq <span class="op">=</span> nltk.FreqDist(porterstemmed)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>top_words <span class="op">=</span> word_freq.most_common(<span class="dv">15</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.bar([w[<span class="dv">0</span>] <span class="cf">for</span> w <span class="kw">in</span> top_words], [w[<span class="dv">1</span>] <span class="cf">for</span> w <span class="kw">in</span> top_words], color <span class="op">=</span> <span class="st">"tomato"</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top 15 Words in Pride and Prejudice'</span>)</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Word'</span>)</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="DataPreprocessingandInformation_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+<h1>Results</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Word Frequency for Pride and Prejudice</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>myStopWords <span class="op">=</span> <span class="bu">list</span>(punctuation) <span class="op">+</span> stopwords.words(<span class="st">'english'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>wordsNoStop <span class="op">=</span> [w <span class="cf">for</span> w <span class="kw">in</span> pnp_words <span class="cf">if</span> w.lower() <span class="kw">not</span> <span class="kw">in</span> myStopWords]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>porterstemmed <span class="op">=</span> []</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> w <span class="kw">in</span> wordsNoStop:</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    pstemmer <span class="op">=</span> PorterStemmer()</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    porterstemmed.append(pstemmer.stem(w))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>word_freq <span class="op">=</span> nltk.FreqDist(porterstemmed)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>top_words <span class="op">=</span> word_freq.most_common(<span class="dv">15</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">6</span>))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.bar([w[<span class="dv">0</span>] <span class="cf">for</span> w <span class="kw">in</span> top_words], [w[<span class="dv">1</span>] <span class="cf">for</span> w <span class="kw">in</span> top_words], color <span class="op">=</span> <span class="st">"tomato"</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Top 15 Words in Pride and Prejudice'</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Word'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/opt/conda/lib/python3.10/site-packages/IPython/core/pylabtools.py:152: UserWarning: Glyph 128 (\x80) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+/opt/conda/lib/python3.10/site-packages/IPython/core/pylabtools.py:152: UserWarning: Glyph 157 (\x9d) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+/opt/conda/lib/python3.10/site-packages/IPython/core/pylabtools.py:152: UserWarning: Glyph 156 (\x9c) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="DataPreprocessingandInformation_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>When analyzing the top 15 words in ‘Pride and Prejudice’, it is clear that there are more frequently used words as opposed to others. There were some words that were included that were not correctly processed during the tokenization process, likely due to the type of format from Project Gutenberg. Regardless, there is still significant data that show that the most frequently occurring words were ‘Mr.’, ‘Elizabeth’, ‘Could’, ‘Would’, ‘Said’, ‘Darci’ (which is Darcy), ‘Mrs.’, and ‘Much’. Surprisingly, despite being the main characters in the novel, Elizabeth and Darcy are not the top two most occurring words, but their names are still included in the top 15, which indicates that they both have a very significant role in the novel. Another point that I found interesting was how the words ‘would’ and ‘could’ were among the top 15, which could potentially indicate that many of the characters are often thinking about what could or what would, whether it be their actions, or they are thinking about it. ‘Said’ is another frequently occurring word, which highlights how the novel is centered around dialogue and the theme of communication, or lack thereof.</p>
-<div class="cell" data-scrolled="true" data-execution_count="7">
+<div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Most Common Adjectives</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
@@ -352,15 +332,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Adjective'</span>)</span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[('mr.', 789), ('â\x80\x9d', 789), ('elizabeth', 602), ('could', 527), ('--', 498), ('would', 480), ('said', 406), ('darci', 377), ('mrs.', 346), ('much', 331), ('â\x80\x9ci', 322), ('bennet', 314), ('must', 310), ('miss', 308), ('one', 285), ('know', 274), ('jane', 270), ('bingley', 263), ('ladi', 256), ('sister', 247), ('think', 244), ('though', 234), ('never', 227), ('time', 219), ('see', 217), ('soon', 214), ('make', 210), ('say', 205), ('might', 204), ('may', 197), ('well', 191), ('littl', 188), ('everi', 185), ('wish', 184), ('noth', 183), ('look', 177), ('good', 174), ('without', 173), ('even', 173), ('hope', 172)]</code></pre>
+<div class="cell-output cell-output-stderr">
+<pre><code>/tmp/ipykernel_189/3012994614.py:16: FutureWarning: The behavior of `series[i:j]` with an integer-dtype index is deprecated. In a future version, this will be treated as *label-based* indexing, consistent with e.g. `series[i]` lookups. To retain the old behavior, use `series.iloc[i:j]`. To get the future behavior, use `series.loc[i:j]`.
+  plt.bar(df['Word'][:10], df['Frequency'][:10], color = "peachpuff")</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="DataPreprocessingandInformation_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>After analyzing the most common adjectives in this graph, it was surprising to see which words came up as the most ‘common’. Words like ‘I’, ‘such’, ‘other’, ‘much’, ‘miss’, ‘mr.’, ‘own’, ‘little’, ‘more’, and ‘good’ are generally more neutral words as opposed to positive or negative, but they still reveal the type of tone that persists throughout the novel. For example, the frequent occurrence of the word ‘little’ reveals how the characters in the novel are often downplaying the situation or describing things to be smaller than they really are.</p>
-<div class="cell" data-scrolled="true" data-execution_count="8">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#3. Most Common Nouns</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>pnp_words <span class="op">=</span> word_tokenize(pnp_string)</span>
@@ -382,15 +363,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frequency'</span>)</span>
 <span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_88/2555601944.py:29: FutureWarning: The behavior of `series[i:j]` with an integer-dtype index is deprecated. In a future version, this will be treated as *label-based* indexing, consistent with e.g. `series[i]` lookups. To retain the old behavior, use `series.iloc[i:j]`. To get the future behavior, use `series.loc[i:j]`.
-  plt.bar(df['Word'][:10], df['Frequency'][:10])</code></pre>
+<pre><code>/tmp/ipykernel_189/670723290.py:16: FutureWarning: The behavior of `series[i:j]` with an integer-dtype index is deprecated. In a future version, this will be treated as *label-based* indexing, consistent with e.g. `series[i]` lookups. To retain the old behavior, use `series.iloc[i:j]`. To get the future behavior, use `series.loc[i:j]`.
+  plt.bar(df['Word'][:10], df['Frequency'][:10], color = "skyblue")
+/opt/conda/lib/python3.10/site-packages/IPython/core/pylabtools.py:152: UserWarning: Glyph 128 (\x80) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)
+/opt/conda/lib/python3.10/site-packages/IPython/core/pylabtools.py:152: UserWarning: Glyph 157 (\x9d) missing from current font.
+  fig.canvas.print_figure(bytes_io, **kw)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="DataPreprocessingandInformation_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p>The most frequently occurring nouns were quite similar to the most common adjectives, with repeating words like “I”, which could indicate the strong emphasis on personal perspective and experiences of the characters, especially for Elizabeth Bennet, who is frequently speaking in first person perspective, further emphasizing the importance of dialogue in ‘Pride and Prejudice’. The nouns ‘Mr.’ and ‘Darcy’ also occurs as the most common noun, being ranked 3rd, which shows that Mr.&nbsp;Darcy plays a significant role throughout the novel, and is a crucial character to the overall plot and themes. Jane, Elizabeth, and Bingley are also frequently occurring nouns, but to my surprise, Jane was higher in rank than Elizabeth, despite Elizabeth being the main protagonist, which indicates the more extroverted spirit that Jane has and the more introverted character that Elizabeth portrays. ‘Time’ is another common noun, which points to the overall theme of the novel that centers around how the passage of time allows for relationships to form.</p>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Character Network Visualization</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph()</span>
@@ -406,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Moving forward to the character network analysis, this visualization presents a better display of the complicated and overwhelming connections throughout this novel. Mr.&nbsp;Darcy, who was also the most frequently occurring noun, is also the character with the most connections to other characters, which shows how he is the character at the center of the story, and how the characters around him allow him to be influenced and change from the cold-hearted individual into a beloved character.</p>
-<div class="cell">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#5. Sentiment Analysis of Pride and Prejudice based on Chapter</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>chapters <span class="op">=</span> pnp_string.split(<span class="st">'chapter'</span>)</span>
@@ -425,9 +410,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Sentiment Score'</span>)</span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Sentiment Analysis of Pride and Prejudice'</span>)</span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 <p>For the sentiment analysis of ‘Pride and Prejudice’, focusing on the chapters allowed for me to analyze the gradual changes of sentiment throughout the novel. I chose to use a line plot because it allowed for me to see the different changes that happen during each chapter. For the first 28-30 chapters, there are extreme fluctuations starting from negative in the first chapter to quickly positive, which could indicate the scenes where Elizabeth begins to grow hatred for Mr.&nbsp;Darcy really quickly, and scenes where Jane and Bingley fall in love quickly. At the massive dip of chapters 28-30, this is the scene where Elizabeth is disgusted with Mr.&nbsp;Collins’ proposal, and how Lady Catherine de Bourgh is criticizing Elizabeth and the Bennet family for their “lower class” behavior. However, after 28-30 chapters, the sentiment scores change to being constantly positive and remains that way throughout the latter half of the novel (except the very small dip that occurs around 48-49, possibly because of the scene with Lydia and Wickham’s sudden elopement that causes everyone to be upset). This is because Elizabeth and Mr.&nbsp;Darcy finally confess their love for eachother and sentiment is only positive from that point on. Each fluctuation shows that there was a significant moment in the novel.</p>
-<div class="cell">
+<div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Positive/negative words for Pride and Prejudice:</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>positive_words <span class="op">=</span> []</span>
@@ -460,13 +448,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency of Words'</span>)</span>
 <span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Negative Words in Pride and Prejudice'</span>)</span>
 <span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+</div>
 </div>
 <p>This graph, which highlights the most common positive and negative words in ‘Pride and Prejudice’, revealing the overall tone throughout the novel. The common positive words show how characters are good, hopeful, in love, are wishing, and overall expressing happiness. However, the common negative words are expressing words like “no”, pain, doubt, anxiety, fear, and loneliness. This also shows that the characters have doubt, fear, and anxiety. By seeing the common positive and negative words, I can gain a better understanding of the types of words that Jane Austen uses to describe challenges or highlight moments that the characters face throughout the novel.</p>
 </section>
-<section id="results-from-comparing-different-jane-austen-texts" class="level1">
-<h1>Results From Comparing Different Jane Austen Texts:</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<section id="comparing-different-jane-austen-texts" class="level1">
+<h1>Comparing Different Jane Austen Texts:</h1>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#7 Comparing most positive and negative words from 3 additional texts of Jane Austen</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>positive_words <span class="op">=</span> []</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>negative_words <span class="op">=</span> []</span>
@@ -560,9 +554,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-92"><a href="#cb15-92" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Frequency of Words'</span>)</span>
 <span id="cb15-93"><a href="#cb15-93" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Most Common Negative Words in Sense and Sensibility'</span>)</span>
 <span id="cb15-94"><a href="#cb15-94" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-11-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-11-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-11-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-11-output-6.png" class="img-fluid"></p>
+</div>
 </div>
 <p>By comparing three different texts from Jane Austen to ‘Pride and Prejudice’, I can see some of the similarities and differences between her different novels and see if she has a distinct style in her writing. Similarly to the previous visualization, I chose to focus on the most common positive and negative words between Jane Austen’s works, like Persuasion, Sense and Sensibility, and Emma. The most common positive words that occur in all four of Jane Austen’s novels are ‘happiness’, ‘pleasure’, ‘love’, ‘hope’, ‘friend’, ‘better’, ‘like’, ‘sure’, ‘dear’, ‘good’, and ‘great’. For the negative words, the most frequently occurring in all four novels are: ‘pain’, ‘sorry’, ‘doubt’, ‘poor’, ‘miss’, and ‘no’. ‘No’ is the most common negative word in all four of the novels, which show how the characters in Jane Austen’s novels are not afraid to express themselves. The minor variation in terms of ranking may indicate that Jane Austen’s style of writing may have evolved throughout the years.</p>
-<div class="cell">
+<div class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#8. Most Common type of words in each novel</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>pnp_pos <span class="op">=</span> nltk.pos_tag(pnp_words)</span>
@@ -598,11 +610,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
 <span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Frequencies of Adjectives in Jane Austen Novels'</span>)</span>
 <span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="DataPreprocessingandInformation_files/figure-html/cell-12-output-3.png" class="img-fluid"></p>
+</div>
 </div>
 <p>Overall, when analyzing the three graphs using parts of speech, nouns appear the most frequently throughout Jane Austen’s novels. This analysis indicates that the writing style of Jane Austen tends to focus more on the character, the location, or the thing as opposed to the actions or the descriptive language. I found this to be the most surprising because as I was reading the novels, I always believed that Jane Austen’s style of writing was very descriptive, which really immersed the reader into the novel. Adjective frequency was ranked second, which shows that Austen’s writing style is still very detailed and creative, and description of characters is still essential to the plot of the story. Verbs came in last, which suggests that Austen’s writing focuses less on action and movement, but rather it focuses more on the dialogue between the characters.</p>
 </section>
-<section id="final-words" class="level1">
-<h1>Final Words:</h1>
+<section id="discussion" class="level1">
+<h1>Discussion:</h1>
 <p>With the completion of this project, I was able to gain a deeper appreciation for Jane Austen’s sophisticated and imaginative writing style. Jane Austen’s distinctive style of storytelling and the kinds of themes she includes in her stories, especially in “Pride and Prejudice,” became clearer to me after exploring them through a variety of visualizations, including word frequency, network visualization, sentiment analysis, and common positive and negative words. By this research, I was able to gain a deeper appreciation for the complex language of Jane Austen’s novels and the importance of her word choices to the growth of her characters and the progression of the plot. While I saw some subtle (possibly time-related) shifts in her writing style across her other novels, comparing “Pride and Prejudice” to them showed me that there isn’t all that much variation. As communication is such a central element in Jane Austen’s novels, it is unsurprising that the author places a higher value on dialogue and character growth than on action and description. With this data analysis research and the development of these data visualizations, I was able to obtain a deeper understanding of the novel and a greater respect for the author’s attention to detail and brilliance.</p>
 
 
